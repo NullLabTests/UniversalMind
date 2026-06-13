@@ -9,10 +9,12 @@ class GridWorldConfig:
     size: int = 10
     n_agents: int = 5
     shared_goal_prob: float = 0.3
-    reward_type: str = "distance"  # distance | sparse | potential
+    reward_type: str = "distance"  # distance | shared | sparse | potential
     task_type: str = "individual"  # individual | shared | mixed
     max_steps: int = 100
     seed: Optional[int] = None
+    partitioned: bool = False
+    blind_ratio: float = 0.5
 
 
 class GridWorld:
@@ -54,8 +56,16 @@ class GridWorld:
 
     def _observe(self) -> Dict[int, np.ndarray]:
         obs = {}
+        self.blind_agents: set = set()
+        if self.config.partitioned and self.config.blind_ratio > 0:
+            n_blind = max(1, int(self.n_agents * self.config.blind_ratio))
+            all_idx = list(range(self.n_agents))
+            self.rng.shuffle(all_idx)
+            self.blind_agents = set(all_idx[:n_blind])
         for i in range(self.n_agents):
             obs[i] = np.concatenate([self.positions[i], self.targets[i]])
+            if i in self.blind_agents:
+                obs[i][2:] = 0.0  # hide goal from blind agents
         return obs
 
     def step(self, actions: Dict[int, int]) -> Tuple[Dict[int, np.ndarray], Dict[int, float], bool]:

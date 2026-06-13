@@ -58,6 +58,8 @@ class RSIEvolutionExperiment(BaseExperiment):
             task_type=ud_config.get("task", {}).get("type", "mixed"),
             shared_goal_prob=ud_config.get("task", {}).get("shared_goal_prob", 0.5),
             reward_type=ud_config.get("task", {}).get("reward_type", "distance"),
+            partitioned=ud_config.get("task", {}).get("partitioned", False),
+            blind_ratio=ud_config.get("task", {}).get("blind_ratio", 0.5),
         )
 
     def setup(self):
@@ -202,6 +204,7 @@ class RSIEvolutionExperiment(BaseExperiment):
             size=config.env_size, n_agents=config.n_agents,
             shared_goal_prob=config.shared_goal_prob,
             reward_type=config.reward_type, task_type=config.task_type,
+            partitioned=config.partitioned, blind_ratio=config.blind_ratio,
             max_steps=config.n_steps,
             seed=int(config.seed) ^ 42 if config.seed is not None else int(np.random.randint(0, 2**31)),
         ))
@@ -218,6 +221,7 @@ class RSIEvolutionExperiment(BaseExperiment):
             size=config.env_size, n_agents=config.n_agents,
             shared_goal_prob=config.shared_goal_prob,
             reward_type=config.reward_type, task_type=config.task_type,
+            partitioned=config.partitioned, blind_ratio=config.blind_ratio,
             max_steps=config.n_steps,
             seed=int(config.seed) ^ 24 if config.seed is not None else int(np.random.randint(0, 2**31)),
         ))

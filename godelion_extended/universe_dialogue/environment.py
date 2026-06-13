@@ -30,6 +30,8 @@ class UniverseDialogueConfig:
     task_type: str = "individual"
     shared_goal_prob: float = 0.3
     reward_type: str = "distance"
+    partitioned: bool = False
+    blind_ratio: float = 0.5
 
     # Misc
     seed: Optional[int] = None

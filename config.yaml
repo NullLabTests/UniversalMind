@@ -36,20 +36,22 @@ universe_dialogue:
     type: "shared"               # individual | shared | mixed
     shared_goal_prob: 0.5
     reward_type: "shared"        # distance | shared | sparse | potential
+    partitioned: true
+    blind_ratio: 0.5
 
 # --- RSI Evolution System ---
 rsi_evolution:
   enabled: true
-  n_systems: 15
-  n_generations: 200
-  mutation_rate: 0.4
-  mutation_strength: 0.3
+  n_systems: 20
+  n_generations: 300
+  mutation_rate: 0.5
+  mutation_strength: 0.4
   selection: "truncation"
   tournament_size: 3
-  elite_ratio: 0.2
+  elite_ratio: 0.15
   crossover_rate: 0.3
   coordination_bonus: 2.0
-  mutation_decay: 0.995
+  mutation_decay: 0.998
 
 # --- Metrics & Analysis ---
 metrics:

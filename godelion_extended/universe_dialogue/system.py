@@ -18,6 +18,8 @@ class MultiAgentSystem:
             shared_goal_prob=config.shared_goal_prob,
             reward_type=config.reward_type,
             task_type=config.task_type,
+            partitioned=config.partitioned,
+            blind_ratio=config.blind_ratio,
             max_steps=config.n_steps,
             seed=(config.seed + 1 if config.seed is not None else None),
         ))
