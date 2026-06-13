@@ -59,7 +59,6 @@ def override_config(cfg: Config, args) -> Config:
                 cfg.set(args.generations, section, "n_generations")
     if args.agents:
         cfg.set(args.agents, "universe_dialogue", "n_agents")
-        cfg.set(args.agents, "rsi_evolution", "n_agents")
     if args.trials:
         cfg.set(args.trials, "universe_dialogue", "n_trials")
     if args.output:

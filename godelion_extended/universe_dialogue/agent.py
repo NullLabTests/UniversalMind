@@ -2,7 +2,8 @@ from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 
-from ..agents.policy import MLPPolicy, PolicyConfig
+from ..agents.policy import MLPPolicy, LinearPolicy, PolicyConfig
+from ..agents.simple_policy import SimplePolicy
 from ..agents.memory import AgentMemory
 from ..agents.communication import create_channel, CommunicationChannel
 
@@ -25,10 +26,13 @@ class DialogueAgent:
             input_dim=policy_input_dim,
             hidden_dim=config.policy_hidden_dim,
             output_dim=4,
-            policy_type="mlp",
+            policy_type=config.policy_type,
             seed=self.rng.randint(0, 2**31) if config.seed is None else config.seed + agent_id,
         )
-        self.policy = MLPPolicy(policy_cfg)
+        if config.policy_type == "simple":
+            self.policy = SimplePolicy(policy_cfg)
+        else:
+            self.policy = MLPPolicy(policy_cfg)
 
         self.comm_channel: Optional[CommunicationChannel] = None
         if config.learn_communication:

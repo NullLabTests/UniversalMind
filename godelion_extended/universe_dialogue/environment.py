@@ -13,6 +13,7 @@ class UniverseDialogueConfig:
     n_trials: int = 3
 
     # Agent
+    policy_type: str = "mlp"  # mlp | simple
     policy_hidden_dim: int = 16
     comm_dim: int = 4
     memory_size: int = 8

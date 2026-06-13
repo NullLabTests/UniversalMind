@@ -14,15 +14,16 @@ universe_dialogue:
   enabled: true
   n_agents: 6
   env_size: 10
-  n_steps: 100
+  n_steps: 50
   n_generations: 50
-  n_trials: 3
+  n_trials: 1
   
   agent:
+    policy_type: "simple"        # mlp | simple
     policy_hidden_dim: 16
     comm_dim: 4
     memory_size: 8
-    use_memory: true
+    use_memory: false
     learn_communication: true
   
   communication:
@@ -32,27 +33,23 @@ universe_dialogue:
     attention_heads: 2
   
   task:
-    type: "mixed"                # individual | shared | mixed
+    type: "shared"               # individual | shared | mixed
     shared_goal_prob: 0.5
-    reward_type: "distance"      # distance | sparse | potential
+    reward_type: "shared"        # distance | shared | sparse | potential
 
 # --- RSI Evolution System ---
 rsi_evolution:
   enabled: true
-  n_agents: 20
-  n_generations: 50
-  mutation_rate: 0.1
-  mutation_strength: 0.05
-  selection: "tournament"        # tournament | proportional | elite
+  n_systems: 15
+  n_generations: 200
+  mutation_rate: 0.4
+  mutation_strength: 0.3
+  selection: "truncation"
   tournament_size: 3
-  elite_ratio: 0.1
+  elite_ratio: 0.2
   crossover_rate: 0.3
-  
-  meta_evolution:
-    enabled: false
-    mutate_mutation_rate: true
-    mutate_selection_pressure: true
-    meta_interval: 20
+  coordination_bonus: 2.0
+  mutation_decay: 0.995
 
 # --- Metrics & Analysis ---
 metrics:

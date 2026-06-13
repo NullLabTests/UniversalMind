@@ -59,8 +59,10 @@ class ExperimentLogger:
                 writer = csv.DictWriter(f, fieldnames=list(record.keys()))
                 writer.writerow(record)
 
-        self.logger.info(f"Gen {generation}: total_reward={metrics.get('total_system_reward_mean', 'N/A'):.2f}, "
-                         f"coord={metrics.get('coordination_score_mean', 'N/A'):.4f}")
+        total_reward = metrics.get('total_system_reward_mean', metrics.get('mean_fitness', 0.0))
+        coord = metrics.get('coordination_score_mean', 0.0)
+        self.logger.info(f"Gen {generation}: total_reward={total_reward:.2f}, "
+                         f"coord={coord:.4f}")
 
     def log_message(self, message: str, level: str = "INFO"):
         getattr(self.logger, level.lower(), self.logger.info)(message)

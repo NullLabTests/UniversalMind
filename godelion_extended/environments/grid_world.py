@@ -77,6 +77,12 @@ class GridWorld:
             if self.reward_type == "distance":
                 dist = np.linalg.norm(self.positions[i] - self.targets[i])
                 rewards[i] = -dist / (self.size * np.sqrt(2))
+            elif self.reward_type == "shared":
+                dists = [np.linalg.norm(self.positions[j] - self.targets[j]) for j in range(self.n_agents)]
+                mean_dist = sum(dists) / len(dists)
+                for j in range(self.n_agents):
+                    rewards[j] = -mean_dist / (self.size * np.sqrt(2))
+                break
             elif self.reward_type == "sparse":
                 dist = np.linalg.norm(self.positions[i] - self.targets[i])
                 rewards[i] = 1.0 if dist < 1.0 else -0.1
