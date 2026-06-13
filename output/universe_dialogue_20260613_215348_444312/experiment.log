@@ -1,0 +1,5 @@
+2026-06-13 21:53:48,445 [INFO] Experiment 'universe_dialogue' started (run_id: 20260613_215348_444312)
+2026-06-13 21:53:48,445 [INFO] Output directory: ./output/universe_dialogue_20260613_215348_444312
+2026-06-13 21:53:48,446 [INFO] Starting experiment: UniverseDialogueExperiment
+2026-06-13 21:53:48,451 [INFO] Universe Dialogue experiment initialized with 2 agents
+2026-06-13 21:53:48,451 [INFO] --- Generation 0 ---

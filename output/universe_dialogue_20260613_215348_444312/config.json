@@ -1,0 +1,80 @@
+{
+  "experiment": {
+    "name": "universe_dialogue",
+    "seed": 42,
+    "output_dir": "./output"
+  },
+  "universe_dialogue": {
+    "enabled": true,
+    "n_agents": 2,
+    "env_size": 10,
+    "n_steps": 100,
+    "n_generations": 2,
+    "n_trials": 1,
+    "agent": {
+      "policy_hidden_dim": 16,
+      "comm_dim": 4,
+      "memory_size": 8,
+      "use_memory": true,
+      "learn_communication": true
+    },
+    "communication": {
+      "channel_type": "vector",
+      "vocab_size": 16,
+      "message_length": 4,
+      "attention_heads": 2
+    },
+    "task": {
+      "type": "individual",
+      "shared_goal_prob": 0.3,
+      "reward_type": "distance"
+    }
+  },
+  "rsi_evolution": {
+    "enabled": true,
+    "n_agents": 2,
+    "n_generations": 2,
+    "mutation_rate": 0.1,
+    "mutation_strength": 0.05,
+    "selection": "tournament",
+    "tournament_size": 3,
+    "elite_ratio": 0.1,
+    "crossover_rate": 0.3,
+    "meta_evolution": {
+      "enabled": true,
+      "mutate_mutation_rate": true,
+      "mutate_selection_pressure": true,
+      "meta_interval": 10
+    }
+  },
+  "metrics": {
+    "compute_mutual_information": true,
+    "compute_synchronization": true,
+    "compute_emergence": true,
+    "track_entropy": true,
+    "track_communication": true,
+    "log_interval": 1
+  },
+  "visualization": {
+    "enabled": true,
+    "plot_interval": 5,
+    "save_plots": true,
+    "plot_format": "png",
+    "dpi": 150
+  },
+  "logging": {
+    "level": "INFO",
+    "save_trajectories": true,
+    "save_communication_log": true,
+    "save_metrics_csv": true,
+    "save_generation_data": true,
+    "log_interval": 1,
+    "compress_old_runs": false
+  },
+  "reproducibility": {
+    "deterministic": true,
+    "seed_evolution": true,
+    "seed_environment": true,
+    "seed_agents": true
+  }
+}
