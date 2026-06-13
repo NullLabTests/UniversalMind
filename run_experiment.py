@@ -24,6 +24,7 @@ from pathlib import Path
 
 from godelion_extended.config import Config, config as global_config
 from godelion_extended.experiments import UniverseDialogueExperiment, RSIEvolutionExperiment
+from godelion_extended.experiments.minimal_coordination import MinimalCoordinationExperiment
 
 
 def parse_args():
@@ -33,7 +34,7 @@ def parse_args():
     parser.add_argument("--config", type=str, default=None,
                         help="Path to YAML config file")
     parser.add_argument("--experiment", type=str, default=None,
-                        choices=["universe_dialogue", "rsi_evolution"],
+                        choices=["universe_dialogue", "rsi_evolution", "minimal_coordination"],
                         help="Experiment type to run")
     parser.add_argument("--generations", type=int, default=None,
                         help="Number of generations")
@@ -91,6 +92,8 @@ def main():
 
     if experiment_name == "rsi_evolution":
         experiment = RSIEvolutionExperiment(cfg.to_dict(), output_dir)
+    elif experiment_name == "minimal_coordination":
+        experiment = MinimalCoordinationExperiment(cfg.to_dict(), output_dir)
     else:
         experiment = UniverseDialogueExperiment(cfg.to_dict(), output_dir)
 

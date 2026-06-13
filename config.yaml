@@ -5,7 +5,7 @@
 
 # --- Experiment Selection ---
 experiment:
-  name: "universe_dialogue"      # universe_dialogue | rsi_evolution | meta_rsi
+  name: "universe_dialogue"      # universe_dialogue | rsi_evolution | minimal_coordination
   seed: 42
   output_dir: "./output"
 
@@ -14,44 +14,44 @@ universe_dialogue:
   enabled: true
   n_agents: 6
   env_size: 10
-  n_steps: 50
+  n_steps: 100
   n_generations: 50
-  n_trials: 1
-  
+  n_trials: 3
+
   agent:
-    policy_type: "simple"        # mlp | simple
+    policy_type: "mlp"           # mlp | simple
     policy_hidden_dim: 16
     comm_dim: 4
     memory_size: 8
-    use_memory: false
+    use_memory: true
     learn_communication: true
-  
+
   communication:
     channel_type: "vector"       # vector | discrete | attention
     vocab_size: 16
     message_length: 4
     attention_heads: 2
-  
+
   task:
-    type: "shared"               # individual | shared | mixed
-    shared_goal_prob: 0.5
-    reward_type: "shared"        # distance | shared | sparse | potential
-    partitioned: true
+    type: "mixed"                # individual | shared | mixed
+    shared_goal_prob: 0.3
+    reward_type: "distance"      # distance | shared | sparse | potential
+    partitioned: false
     blind_ratio: 0.5
 
 # --- RSI Evolution System ---
 rsi_evolution:
   enabled: true
   n_systems: 20
-  n_generations: 300
-  mutation_rate: 0.5
-  mutation_strength: 0.4
+  n_generations: 200
+  mutation_rate: 0.15
+  mutation_strength: 0.08
   selection: "truncation"
   tournament_size: 3
-  elite_ratio: 0.15
+  elite_ratio: 0.2
   crossover_rate: 0.3
-  coordination_bonus: 2.0
-  mutation_decay: 0.998
+  coordination_bonus: 1.0
+  mutation_decay: 0.995
 
 # --- Metrics & Analysis ---
 metrics:
