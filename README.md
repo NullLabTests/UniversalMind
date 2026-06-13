@@ -75,7 +75,7 @@ The system is designed to test two competing hypotheses:
 ### 1. Install
 
 ```bash
-git clone https://github.com/anomalyco/UniversalMind.git
+git clone https://github.com/zenithbrew/UniversalMind.git
 cd UniversalMind
 
 python3 -m venv venv
