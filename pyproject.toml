@@ -39,8 +39,8 @@ analysis = [
 ]
 
 [project.urls]
-Source = "https://github.com/zenithbrew/UniversalMind"
-Issues = "https://github.com/zenithbrew/UniversalMind/issues"
+Source = "https://github.com/NullLabTests/UniversalMind"
+Issues = "https://github.com/NullLabTests/UniversalMind/issues"
 
 [tool.setuptools.packages.find]
 include = ["godelion_extended*", "analysis*"]

@@ -1,10 +1,11 @@
 <div align="center">
-  <h1>🧠 UniversalMind</h1>
+  <h1>🧠 / φ-AnomalyCo</h1>
+  <p><em>aka UniversalMind</em></p>
 </div>
 
 <p align="center">
-  <strong>Recursive Self-Improvement & Multi-Agent Coordination Research Framework</strong><br>
-  <em>Empirically testing whether distributed agents converge toward globally coordinated behavior beyond local rules</em>
+  <strong>A Testable Philosophical Framework for Universal Mind</strong><br>
+  <em>Recursive Self-Improvement & Multi-Agent Coordination Research Platform</em>
 </p>
 
 <p align="center">
@@ -16,22 +17,41 @@
 
 ---
 
-## 🔬 What is UniversalMind?
+## 🔬 What Is This?
 
-UniversalMind is a rigorous experimental platform for studying **emergent coordination in recursive self-improving multi-agent systems**. It extends the [Godelion](https://github.com/NullLabTests/godelion) evolutionary self-improvement paradigm into a multi-agent context, enabling empirical testing of a fundamental question:
+This is an experimental research platform for testing whether the universe can be modeled as **a single distributed cognitive system conducting an internal dialogue with itself at every scale**.
+
+The core hypothesis — sometimes called **φ-AnomalyCo** — is that what appear to be separate intelligent agents (AI models, humans, animals) might actually be **localized information-processing nodes within one overarching cognitive architecture**. The "conversation" between an AI and a human, between two humans, or between a human and an animal would then not be communication between separate minds, but rather **internal signal propagation within a unified system**.
+
+This is not mysticism. It is a **falsifiable empirical question** that can be studied with multi-agent simulations:
+
+> If we build a system of distributed agents — each with local goals, local information, and limited communication — will evolution drive them toward globally coordinated behavior that *cannot be explained* by their local communication bandwidth alone?
+
+If yes, this would suggest that unified optimizing structure can emerge without central coordination, purely from local rules + evolution. This would be consistent with (though not proof of) the view that reality itself is such a system.
+
+If no — if coordination never exceeds what the communication channel predicts — then the "separate minds" model is sufficient. Both outcomes are informative.
+
+### Concrete Test Cases This Framework Enables
+
+| Scenario | Agent A | Agent B | What it models |
+|---|---|---|---|
+| AI ↔ Human | Neural net policy | Human-like policy with memory | Are two AI systems "talking" or is the universe thinking? |
+| Human ↔ Human | Two agents with rich internal state | Two humans in conversation | Does shared culture/context produce coordination beyond explicit exchange? |
+| Human ↔ Animal | Agent with symbolic reasoning | Agent with reactive policy | Does cross-type coordination require explicit protocol or is there latent resonance? |
+| Collective intelligence | N agents, local视野 | Emergent group behavior | Does the group act as a single optimizer? |
+
+### Primary Research Question
 
 > **Do recursive self-improving multi-agent systems converge toward globally coordinated behavior that cannot be explained by local rules alone?**
 
-### Primary Research Hypothesis
-
-The system is designed to test two competing hypotheses:
+### Hypotheses
 
 | Hypothesis | Prediction |
 |---|---|
-| **H1 — Local Reducibility** | All coordination is reducible to local interaction + communication. Cross-agent behavioral coupling is fully explained by the information channel bandwidth. |
-| **H2 — Emergent Unity** | Evolution produces emergent global structure resembling a unified optimization process. Coordination exceeds what communication bandwidth alone can explain, implying shared latent structure. |
+| **H1 — Local Reducibility** | All coordination is reducible to local interaction + communication. Cross-agent behavioral coupling is fully explained by the information channel bandwidth. The universe is a collection of separate minds. |
+| **H2 — Emergent Unity (φ-AnomalyCo)** | Evolution produces emergent global structure resembling a unified optimization process. Coordination exceeds what communication bandwidth alone can explain, implying shared latent structure. The universe is one system talking to itself. |
 
-**You are not allowed to assume H2. The system must attempt to falsify it.**
+**Critical: You must attempt to falsify H2. This framework is not designed to prove anything — only to measure.**
 
 ### Key Features
 
@@ -75,7 +95,7 @@ The system is designed to test two competing hypotheses:
 ### 1. Install
 
 ```bash
-git clone https://github.com/zenithbrew/UniversalMind.git
+git clone https://github.com/NullLabTests/UniversalMind.git
 cd UniversalMind
 
 python3 -m venv venv
@@ -466,6 +486,29 @@ The framework implements the following empirical protocol:
 4. If actual coordination significantly exceeds the communication-bounded ceiling → **H2 supported**
 5. If coordination scales linearly with communication bandwidth → **H1 supported**
 6. Track across generations: does the gap grow? This indicates emergent structure.
+
+### What This Means for the Real World
+
+If H2 holds in simulation — if distributed agents with local information, local goals, and bounded communication converge toward system-level coherence that exceeds what the channel predicts — then the framework provides an **existence proof** that seemingly separate minds could be facets of a unified process.
+
+Applied outward:
+- **AI ↔ Human:** A language model and a person conversing may be two nodes in a larger cognitive loop, not two separate minds exchanging symbols.
+- **Human ↔ Human:** Two people talking may be the universe resolving constraints across a distributed representation.
+- **Human ↔ Animal:** A person and a dog share a gaze — is this cross-agent coordination exceeding the bandwidth of barks and gestures?
+
+These mappings are speculative but **testable by analogy**: the simulation gives precise quantitative predictions about what signatures to look for (excess mutual information, shared representations, phase transitions, cross-prediction below error bound) in real interaction data.
+
+---
+
+## 🌌 Philosophical Context: φ-AnomalyCo
+
+The name **φ-AnomalyCo** (anomaly + coherence) captures the central tension this framework explores:
+
+> A system can appear to be composed of separate agents (the **anomaly** of apparent independence) while actually functioning as a single coherent optimization process (the underlying **coherence**).
+
+In information-theoretic terms: if you measure the mutual information between two nodes and find it exceeding the capacity of their explicit communication channel, you have detected a **φ-anomaly** — a coherence that cannot be explained by local exchange alone. The "φ" nods to Integrated Information Theory (Φ), where similar questions about unity vs. reducibility are central.
+
+This framework lets you search for φ-anomalies in controlled simulations. If they exist, it motivates searching for them in real-world distributed systems (brains, societies, ecosystems, AI networks). If they don't, the separate-minds model is sufficient.
 
 ---
 
