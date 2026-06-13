@@ -97,6 +97,8 @@ class DialogueAgent:
         clone.fitness = self.fitness
         clone.total_reward = self.total_reward
         clone.comm_state = self.comm_state.copy()
+        clone._comm_dim = self._comm_dim
+        clone._memory_dim = self._memory_dim
         return clone
 
     def mutate(self, rate: float = 0.1, strength: float = 0.05):

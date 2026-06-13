@@ -78,7 +78,11 @@ def compute_communication_entropy(comm_matrix: np.ndarray) -> np.ndarray:
 def _estimate_entropy_continuous(data: np.ndarray, bins: int = 10) -> float:
     if len(data) < 2:
         return 0.0
-    hist, _ = np.histogram(data, bins=bins)
+    data_range = data.max() - data.min()
+    if data_range < 1e-10:
+        return 0.0
+    actual_bins = min(bins, max(2, len(data) // 2))
+    hist, _ = np.histogram(data, bins=actual_bins)
     hist = hist / hist.sum()
     hist = hist[hist > 0]
     return float(-np.sum(hist * np.log2(hist)))
@@ -109,7 +113,7 @@ def compute_coordination_score(action_matrix: np.ndarray) -> float:
 
     mean_h = np.mean(action_entropies)
     if mean_h > 0:
-        return float(1.0 - h_joint / (mean_h * 2 + 1e-8))
+        return float(max(0.0, 1.0 - h_joint / (mean_h * 2 + 1e-8)))
     return 0.0
 
 

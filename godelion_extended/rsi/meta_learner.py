@@ -34,10 +34,11 @@ class MetaLearner:
         self.history: List[Dict] = []
 
     def select_strategy(self) -> EvolutionStrategy:
-        total = sum(max(0, f) for f in self.strategy_fitness) + 1e-8
-        probs = [max(0, f) / total for f in self.strategy_fitness]
-        if sum(probs) == 0:
-            probs = [1.0 / len(self.strategies)] * len(self.strategies)
+        probs = np.array([max(0.0, f) for f in self.strategy_fitness], dtype=float)
+        if probs.sum() == 0:
+            probs = np.ones(len(self.strategies)) / len(self.strategies)
+        else:
+            probs = probs / probs.sum()
         idx = self.rng.choice(len(self.strategies), p=probs)
         return self.strategies[idx]
 

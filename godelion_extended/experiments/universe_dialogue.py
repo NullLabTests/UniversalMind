@@ -120,8 +120,10 @@ class UniverseDialogueExperiment(BaseExperiment):
             new_agents = []
             for idx in parent_indices:
                 parent = self.system.agents[idx]
-                if self.evo_config["crossover_rate"] > 0 and np.random.random() < self.evo_config["crossover_rate"]:
-                    other_idx = np.random.choice([i for i in parent_indices if i != idx])
+                other_parents = [i for i in parent_indices if i != idx]
+                if (self.evo_config["crossover_rate"] > 0 and len(other_parents) > 0
+                        and np.random.random() < self.evo_config["crossover_rate"]):
+                    other_idx = np.random.choice(other_parents)
                     child = crossover_agents(parent, self.system.agents[other_idx])
                 else:
                     child = mutate_agent(parent, current_mutation_rate, self.evo_config["mutation_strength"])

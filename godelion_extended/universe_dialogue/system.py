@@ -46,21 +46,21 @@ class MultiAgentSystem:
             actions: Dict[int, int] = {}
             comms: Dict[int, np.ndarray] = {}
 
-            for agent in self.agents:
+            for i, agent in enumerate(self.agents):
                 comm_input = None
                 if agent.comm_channel is not None and step > 0:
                     other_comms = [
                         self.agents[j].comm_state
                         for j in range(self.config.n_agents)
-                        if j != agent.id
+                        if j != i
                     ]
                     if other_comms:
                         avg_comm = np.mean(other_comms, axis=0)
-                        comm_input = agent.comm_channel.decode(avg_comm, obs[agent.id])
+                        comm_input = agent.comm_channel.decode(avg_comm, obs[i])
 
-                action, comm = agent.act(obs[agent.id], comm_input)
-                actions[agent.id] = action
-                comms[agent.id] = comm
+                action, comm = agent.act(obs[i], comm_input)
+                actions[i] = action
+                comms[i] = comm
 
             comm_history.append({k: v.copy() for k, v in comms.items()})
             action_history.append(dict(actions))
@@ -68,8 +68,8 @@ class MultiAgentSystem:
             obs, rewards, done = self.env.step(actions)
             reward_history.append(dict(rewards))
 
-            for agent in self.agents:
-                agent.total_reward += rewards[agent.id]
+            for i, agent in enumerate(self.agents):
+                agent.total_reward += rewards[i]
 
             total_reward += sum(rewards.values())
 

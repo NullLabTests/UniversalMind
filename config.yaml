@@ -32,8 +32,8 @@ universe_dialogue:
     attention_heads: 2
   
   task:
-    type: "individual"           # individual | shared | mixed
-    shared_goal_prob: 0.3
+    type: "mixed"                # individual | shared | mixed
+    shared_goal_prob: 0.5
     reward_type: "distance"      # distance | sparse | potential
 
 # --- RSI Evolution System ---
@@ -49,10 +49,10 @@ rsi_evolution:
   crossover_rate: 0.3
   
   meta_evolution:
-    enabled: true
+    enabled: false
     mutate_mutation_rate: true
     mutate_selection_pressure: true
-    meta_interval: 10
+    meta_interval: 20
 
 # --- Metrics & Analysis ---
 metrics:
