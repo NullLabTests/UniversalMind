@@ -1,21 +1,36 @@
 # Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
 *.egg-info/
+*.egg
+dist/
+build/
+
+# Virtual environments
 venv/
-.env
-*.local.yaml
+.venv/
+env/
+
+# Config
 config.local.yaml
+*.local.yaml
 
 # Output
 output/
+results/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-
-# OS
+*~
 .DS_Store
-Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log

@@ -1,0 +1,34 @@
+# =============================================================================
+# Local configuration overrides
+# Copy this to config.local.yaml and customize for your environment.
+# Settings here override those in config.yaml.
+# =============================================================================
+
+experiment:
+  name: "universe_dialogue"
+  seed: 42
+  output_dir: "./output"
+
+universe_dialogue:
+  n_agents: 6
+  env_size: 10
+  n_steps: 100
+  n_generations: 50
+  n_trials: 3
+  agent:
+    policy_hidden_dim: 16
+    comm_dim: 4
+    memory_size: 8
+    use_memory: true
+    learn_communication: true
+  communication:
+    channel_type: "vector"
+  task:
+    type: "individual"
+
+rsi_evolution:
+  n_agents: 20
+  n_generations: 50
+  mutation_rate: 0.1
+  selection: "tournament"
+  tournament_size: 3

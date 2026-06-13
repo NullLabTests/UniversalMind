@@ -1,0 +1,16 @@
+# Auto-detect text files
+* text=auto
+
+# Python
+*.py text diff=python
+
+# YAML
+*.yaml text
+
+# Markdown
+*.md text
+
+# Binary
+*.png binary
+*.jpg binary
+*.ico binary
