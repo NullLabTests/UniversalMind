@@ -1,36 +1,25 @@
-# Python
+# Byte-compiled
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-*.egg-info/
-*.egg
-dist/
-build/
 
-# Virtual environments
+# Env
+.env
+.venv
 venv/
-.venv/
-env/
-
-# Config
-config.local.yaml
-*.local.yaml
-
-# Output
-output/
-results/
+ENV/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
+
+# OS
 .DS_Store
+Thumbs.db
 
-# Jupyter
-.ipynb_checkpoints/
-
-# Logs
-*.log
+# Build
+dist/
+build/
+*.egg-info/
