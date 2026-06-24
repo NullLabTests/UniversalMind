@@ -1,14 +1,8 @@
-# Auto-detect text files
+# Auto-detect text files and normalize line endings
 * text=auto
 
 # Python
 *.py text diff=python
-
-# YAML
-*.yaml text
-
-# Markdown
-*.md text
 
 # Binary
 *.png binary
